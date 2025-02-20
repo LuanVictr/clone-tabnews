@@ -1,5 +1,5 @@
 function Home() {
-    return <h1>Frase para testar denovo</h1>
+    return <h1>Será tropinha???</h1>
 }
 
 export default Home;
