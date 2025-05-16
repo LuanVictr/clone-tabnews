@@ -3,7 +3,6 @@ import database from "infra/database.js";
 async function statusPage(request, response) {
   const resposta = await database.query("SELECT 1 + 1 as Sum;");
   const databaseName = process.env.POSTGRES_DB;
-  console.warn(databaseName);
   const updatedAt = new Date().toISOString();
   const databaseVersion = await database.query("SHOW server_version;");
   const databaseMaxConnections = await database.query("SHOW max_connections;");
