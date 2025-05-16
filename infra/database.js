@@ -10,11 +10,15 @@ async function query(query) {
   });
   await client.connect();
 
-  const response = await client.query(query);
-
-  console.warn(response.rows[0]);
-
-  await client.end();
+  try {
+    const response = await client.query(query);
+    return response;
+  } catch (error) {
+    console.error("Error executing query", error.stack);
+    throw error;
+  } finally {
+    await client.end();
+  }
 }
 
 export default { query: query };
